@@ -2,30 +2,42 @@ function todoist(content, duedate, notes)
 % TODOIST Add a task to Todoist
 %
 %  USAGE: todoist(content, duedate, notes)
-% ________________________________________________________________________________________
-%  content
-%   task description (can include labels, e.g. 'Purchase laptop @finances @work')
-% ________________________________________________________________________________________
-%  duedate (optional, default = 'today')
-%   Human:      today, tomorrow, friday, next friday, tom at 16:30, fri at 2pm
-%   Normal:     May 29, 5/29, 10/29/15, 10-29-15, 10.29.15
-%   Relative:   +5 (5 days from now)
-% ________________________________________________________________________________________
-%  notes (optional, default is to add no notes)
-%   notes to add to the added task. if CHAR, it will be added as a single note. 
-%   if CELL array of strings, each cell will be added as a separate note. 
+% 
+% This is inspired by the Alfred Workflow Todoistify written by James Mowery 
+% (https://github.com/JamesMowery/todoistify). For this to work, you need to locate your 
+% Todoist API key, which you can find under the "Account" tab of the "Todoist Settings" 
+% in the web app (https://todoist.com). Near the top of the function code (below the 
+% documentation), you'll find a section API TOKEN where the variable "token"  is defined. 
+% Replace the value with your own token and you should be good to go. This has
+% only been tested on a Mac OS X running El Capitan. 
+% 
+%  ARGUMENTS
+% 
+%   CONTENT
+%       task description (can include labels, e.g. 'Purchase laptop @finances @work')
+% 
+%   DUEDATE (optional, default = 'today')
+%       Human:      today, tomorrow, friday, next friday, tom at 16:30, fri at 2pm
+%       Normal:     May 29, 5/29, 10/29/15, 10-29-15, 10.29.15
+%       Relative:   +5 (5 days from now)
+% 
+%   NOTES (optional, default is to add no notes)
+%       notes to add to the added task. if CHAR, it will be added as a single note. 
+%       if CELL array of strings, each cell will be added as a separate note. 
 % 
 
-% ----------------------------- Copyright (C) 2015 Bob Spunt -----------------------------
-%	Created:  2015-09-18
-%	Email:     spunt@caltech.edu
-% ________________________________________________________________________________________
-% ________________________________________________________________________________________
-% -------------------------------------- API TOKEN ---------------------------------------
+% ----------------------------- Copyright (C) 2015 Bob Spunt ----------------------------- 
+%   Created:  2015-09-18 
+%   Email:  spunt@caltech.edu 
+% ________________________________________________________________________________________ 
+
+% ________________________________________________________________________________________ 
+% -------------------------------------- API TOKEN --------------------------------------- 
 token='YOUR-API-TOKEN';
 % ________________________________________________________________________________________
+
 if strcmpi(token, 'YOUR-API-TOKEN')
-    fprintf('\nFor this to work you need add your Todoist API Token');
+    fprintf('\n---- For this to work you need add your Todoist API Token ----\n\n'); return; 
 end
 if nargin < 1, mfile_showhelp; return;  end
 if nargin < 2, duedate = 'Today';       end
