@@ -20,10 +20,16 @@ function todoist(content, duedate, notes)
 %	Created:  2015-09-18
 %	Email:     spunt@caltech.edu
 % ________________________________________________________________________________________
+% ________________________________________________________________________________________
+% -------------------------------------- API TOKEN ---------------------------------------
+token='YOUR-API-TOKEN';
+% ________________________________________________________________________________________
+if strcmpi(token, 'YOUR-API-TOKEN')
+    fprintf('\nFor this to work you need add your Todoist API Token');
+end
 if nargin < 1, mfile_showhelp; return;  end
 if nargin < 2, duedate = 'Today';       end
 if nargin < 3, notes = [];              end
-token  = 'b89a56761fc2a02c0ddf9a187fce6842cdae6f01'; 
 url    ='https://api.todoist.com/API/addItem';
 cmd    = sprintf(['QUERY="%s"; DUEDATE="%s"; '  ...
        'curl --request POST ''%s'' --data '     ...
