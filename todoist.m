@@ -35,9 +35,9 @@ function todoist(content, duedate, notes)
 % -------------------------------------- API TOKEN ---------------------------------------
 token='YOUR-API-TOKEN';
 % ________________________________________________________________________________________
-
 if strcmpi(token, 'YOUR-API-TOKEN')
-    fprintf('\n---- For this to work you need add your Todoist API Token ----\n\n'); return;
+    fprintf('\n\tFor this to work you need add your Todoist API Token. Type `help todoist` for more info.\n\n');
+    return;
 end
 if nargin < 1, mfile_showhelp; return;  end
 if nargin < 2, duedate = 'Today';       end
